@@ -1,5 +1,4 @@
 # Movie Title Search
-[![Build Status][travis-badge]][travis-badge-url]
 
 This repository holds the TypeScript source code of the Movie Search, as a starting project using Angular2.
 
