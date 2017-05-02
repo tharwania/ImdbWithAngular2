@@ -4,25 +4,19 @@ import { OMDBService } from './omdb.service';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>
-  			 <button (click)="getMovie()">Click Me</button>
-  			 
-  				{{movies.Title}}
-  			`,
+  templateUrl: `myAppTemplate.html`,
+  styleUrls: ['SearchStyle.css'],
   providers: [ OMDBService ]
 })
 
 
-export class AppComponent implements OnInit{ 
-	name = 'Angular'; 
+export class AppComponent{  
 	movies : any = [];
 	constructor(private _omdbService : OMDBService){}
 	
-	ngOnInit(){
-		this._omdbService.getMovieData()
+	getMovie(movieTitle: string){
+			this._omdbService.getMovieData(movieTitle)
 				.subscribe(movieData => this.movies = movieData);
-	}
-	getMovie(){
-			console.log(this.movies);
+				console.log(this.movies);
 	}
 }

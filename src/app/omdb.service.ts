@@ -5,12 +5,14 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class OMDBService{
-	private url: string = "http://www.omdbapi.com/?t=Harry+Potter";
+	
 
 	constructor(private _http: Http){}
 
-	getMovieData() {
-		return this._http.get(this.url)
+	getMovieData(title: string) {
+		var url = "http://www.omdbapi.com/?t="+title;
+
+		return this._http.get(url)
 			.map((response: Response) => response.json());
 	}
 }
